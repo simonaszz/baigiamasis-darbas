@@ -17,11 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,4 +37,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @return array<int, string>
+     */
+    public function getGuarded()
+    {
+        return $this->guarded;
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @param array<int, string> $guarded The attributes that are mass assignable.
+     * @return self
+     */
+    public function setGuarded($guarded): self
+    {
+        $this->guarded = $guarded;
+        return $this;
+    }
 }
