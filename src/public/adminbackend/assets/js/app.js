@@ -1,1 +1,124 @@
-!function(n){"use strict";function s(){for(var e=document.getElementById("topnav-menu-content").getElementsByTagName("a"),t=0,n=e.length;t<n;t++)"nav-item dropdown active"===e[t].parentElement.getAttribute("class")&&(e[t].parentElement.classList.remove("active"),e[t].nextElementSibling.classList.remove("show"))}function t(e){1==n("#light-mode-switch").prop("checked")&&"light-mode-switch"===e?(n("html").removeAttr("dir"),n("#dark-mode-switch").prop("checked",!1),n("#rtl-mode-switch").prop("checked",!1),n("#bootstrap-style").attr("href","assets/css/bootstrap.min.css"),n("#app-style").attr("href","assets/css/app.min.css"),sessionStorage.setItem("is_visited","light-mode-switch")):1==n("#dark-mode-switch").prop("checked")&&"dark-mode-switch"===e?(n("html").removeAttr("dir"),n("#light-mode-switch").prop("checked",!1),n("#rtl-mode-switch").prop("checked",!1),n("#bootstrap-style").attr("href","assets/css/bootstrap-dark.min.css"),n("#app-style").attr("href","assets/css/app-dark.min.css"),sessionStorage.setItem("is_visited","dark-mode-switch")):1==n("#rtl-mode-switch").prop("checked")&&"rtl-mode-switch"===e&&(n("#light-mode-switch").prop("checked",!1),n("#dark-mode-switch").prop("checked",!1),n("#bootstrap-style").attr("href","assets/css/bootstrap-rtl.min.css"),n("#app-style").attr("href","assets/css/app-rtl.min.css"),n("html").attr("dir","rtl"),sessionStorage.setItem("is_visited","rtl-mode-switch"))}function e(){document.webkitIsFullScreen||document.mozFullScreen||document.msFullscreenElement||(console.log("pressed"),n("body").removeClass("fullscreen-enable"))}var a;n("#side-menu").metisMenu(),n("#vertical-menu-btn").on("click",function(e){e.preventDefault(),n("body").toggleClass("sidebar-enable"),992<=n(window).width()?n("body").toggleClass("vertical-collpsed"):n("body").removeClass("vertical-collpsed")}),n("body,html").click(function(e){var t=n("#vertical-menu-btn");t.is(e.target)||0!==t.has(e.target).length||e.target.closest("div.vertical-menu")||n("body").removeClass("sidebar-enable")}),n("#sidebar-menu a").each(function(){var e=window.location.href.split(/[?#]/)[0];this.href==e&&(n(this).addClass("active"),n(this).parent().addClass("mm-active"),n(this).parent().parent().addClass("mm-show"),n(this).parent().parent().prev().addClass("mm-active"),n(this).parent().parent().parent().addClass("mm-active"),n(this).parent().parent().parent().parent().addClass("mm-show"),n(this).parent().parent().parent().parent().parent().addClass("mm-active"))}),n(".navbar-nav a").each(function(){var e=window.location.href.split(/[?#]/)[0];this.href==e&&(n(this).addClass("active"),n(this).parent().addClass("active"),n(this).parent().parent().addClass("active"),n(this).parent().parent().parent().addClass("active"),n(this).parent().parent().parent().parent().addClass("active"),n(this).parent().parent().parent().parent().parent().addClass("active"))}),n(document).ready(function(){var e;0<n("#sidebar-menu").length&&0<n("#sidebar-menu .mm-active .active").length&&(300<(e=n("#sidebar-menu .mm-active .active").offset().top)&&(e-=300,n(".vertical-menu .simplebar-content-wrapper").animate({scrollTop:e},"slow")))}),n('[data-toggle="fullscreen"]').on("click",function(e){e.preventDefault(),n("body").toggleClass("fullscreen-enable"),document.fullscreenElement||document.mozFullScreenElement||document.webkitFullscreenElement?document.cancelFullScreen?document.cancelFullScreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.webkitCancelFullScreen&&document.webkitCancelFullScreen():document.documentElement.requestFullscreen?document.documentElement.requestFullscreen():document.documentElement.mozRequestFullScreen?document.documentElement.mozRequestFullScreen():document.documentElement.webkitRequestFullscreen&&document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT)}),document.addEventListener("fullscreenchange",e),document.addEventListener("webkitfullscreenchange",e),document.addEventListener("mozfullscreenchange",e),n(".right-bar-toggle").on("click",function(e){n("body").toggleClass("right-bar-enabled")}),n(document).on("click","body",function(e){0<n(e.target).closest(".right-bar-toggle, .right-bar").length||n("body").removeClass("right-bar-enabled")}),function(){if(document.getElementById("topnav-menu-content")){for(var e=document.getElementById("topnav-menu-content").getElementsByTagName("a"),t=0,n=e.length;t<n;t++)e[t].onclick=function(e){"#"===e.target.getAttribute("href")&&(e.target.parentElement.classList.toggle("active"),e.target.nextElementSibling.classList.toggle("show"))};window.addEventListener("resize",s)}}(),[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')).map(function(e){return new bootstrap.Tooltip(e)}),[].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]')).map(function(e){return new bootstrap.Popover(e)}),n(window).on("load",function(){n("#status").fadeOut(),n("#preloader").delay(350).fadeOut("slow")}),window.sessionStorage&&((a=sessionStorage.getItem("is_visited"))?(n(".right-bar input:checkbox").prop("checked",!1),n("#"+a).prop("checked",!0),t(a)):sessionStorage.setItem("is_visited","light-mode-switch")),n("#light-mode-switch, #dark-mode-switch, #rtl-mode-switch").on("change",function(e){t(e.target.id)}),Waves.init()}(jQuery);
+$(function() {
+	"use strict";
+	new PerfectScrollbar(".header-message-list"), new PerfectScrollbar(".header-notifications-list"), $(".mobile-search-icon").on("click", function() {
+		$(".search-bar").addClass("full-search-bar")
+	}), $(".search-close").on("click", function() {
+		$(".search-bar").removeClass("full-search-bar")
+	}), $(".mobile-toggle-menu").on("click", function() {
+		$(".wrapper").addClass("toggled")
+	}), $(".toggle-icon").click(function() {
+		$(".wrapper").hasClass("toggled") ? ($(".wrapper").removeClass("toggled"), $(".sidebar-wrapper").unbind("hover")) : ($(".wrapper").addClass("toggled"), $(".sidebar-wrapper").hover(function() {
+			$(".wrapper").addClass("sidebar-hovered")
+		}, function() {
+			$(".wrapper").removeClass("sidebar-hovered")
+		}))
+	}), $(document).ready(function() {
+		$(window).on("scroll", function() {
+			$(this).scrollTop() > 300 ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut()
+		}), $(".back-to-top").on("click", function() {
+			return $("html, body").animate({
+				scrollTop: 0
+			}, 600), !1
+		})
+	}), $(function() {
+		for (var e = window.location, o = $(".metismenu li a").filter(function() {
+				return this.href == e
+			}).addClass("").parent().addClass("mm-active"); o.is("li");) o = o.parent("").addClass("mm-show").parent("").addClass("mm-active")
+	}), $(function() {
+		$("#menu").metisMenu()
+	}), $(".chat-toggle-btn").on("click", function() {
+		$(".chat-wrapper").toggleClass("chat-toggled")
+	}), $(".chat-toggle-btn-mobile").on("click", function() {
+		$(".chat-wrapper").removeClass("chat-toggled")
+	}), $(".email-toggle-btn").on("click", function() {
+		$(".email-wrapper").toggleClass("email-toggled")
+	}), $(".email-toggle-btn-mobile").on("click", function() {
+		$(".email-wrapper").removeClass("email-toggled")
+	}), $(".compose-mail-btn").on("click", function() {
+		$(".compose-mail-popup").show()
+	}), $(".compose-mail-close").on("click", function() {
+		$(".compose-mail-popup").hide()
+	}), $(".switcher-btn").on("click", function() {
+		$(".switcher-wrapper").toggleClass("switcher-toggled")
+	}), $(".close-switcher").on("click", function() {
+		$(".switcher-wrapper").removeClass("switcher-toggled")
+	}), $("#lightmode").on("click", function() {
+		$("html").attr("class", "light-theme")
+	}), $("#darkmode").on("click", function() {
+		$("html").attr("class", "dark-theme")
+	}), $("#semidark").on("click", function() {
+		$("html").attr("class", "semi-dark")
+	}), $("#minimaltheme").on("click", function() {
+		$("html").attr("class", "minimal-theme")
+	}), $("#headercolor1").on("click", function() {
+		$("html").addClass("color-header headercolor1"), $("html").removeClass("headercolor2 headercolor3 headercolor4 headercolor5 headercolor6 headercolor7 headercolor8")
+	}), $("#headercolor2").on("click", function() {
+		$("html").addClass("color-header headercolor2"), $("html").removeClass("headercolor1 headercolor3 headercolor4 headercolor5 headercolor6 headercolor7 headercolor8")
+	}), $("#headercolor3").on("click", function() {
+		$("html").addClass("color-header headercolor3"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor7 headercolor8")
+	}), $("#headercolor4").on("click", function() {
+		$("html").addClass("color-header headercolor4"), $("html").removeClass("headercolor1 headercolor2 headercolor3 headercolor5 headercolor6 headercolor7 headercolor8")
+	}), $("#headercolor5").on("click", function() {
+		$("html").addClass("color-header headercolor5"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor3 headercolor6 headercolor7 headercolor8")
+	}), $("#headercolor6").on("click", function() {
+		$("html").addClass("color-header headercolor6"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor3 headercolor7 headercolor8")
+	}), $("#headercolor7").on("click", function() {
+		$("html").addClass("color-header headercolor7"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor3 headercolor8")
+	}), $("#headercolor8").on("click", function() {
+		$("html").addClass("color-header headercolor8"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor7 headercolor3")
+	})
+
+
+   // sidebar colors 
+
+
+
+    $('#sidebarcolor1').click(theme1);
+    $('#sidebarcolor2').click(theme2);
+    $('#sidebarcolor3').click(theme3);
+    $('#sidebarcolor4').click(theme4);
+    $('#sidebarcolor5').click(theme5);
+    $('#sidebarcolor6').click(theme6);
+    $('#sidebarcolor7').click(theme7);
+    $('#sidebarcolor8').click(theme8);
+
+    function theme1() {
+      $('html').attr('class', 'color-sidebar sidebarcolor1');
+    }
+
+    function theme2() {
+      $('html').attr('class', 'color-sidebar sidebarcolor2');
+    }
+
+    function theme3() {
+      $('html').attr('class', 'color-sidebar sidebarcolor3');
+    }
+
+    function theme4() {
+      $('html').attr('class', 'color-sidebar sidebarcolor4');
+    }
+	
+	function theme5() {
+      $('html').attr('class', 'color-sidebar sidebarcolor5');
+    }
+	
+	function theme6() {
+      $('html').attr('class', 'color-sidebar sidebarcolor6');
+    }
+
+    function theme7() {
+      $('html').attr('class', 'color-sidebar sidebarcolor7');
+    }
+
+    function theme8() {
+      $('html').attr('class', 'color-sidebar sidebarcolor8');
+    }
+
+
+
+
+
+
+
+
+});
