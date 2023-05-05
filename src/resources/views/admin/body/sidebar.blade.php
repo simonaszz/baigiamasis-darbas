@@ -1,10 +1,10 @@
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                    <img src="{{ asset('adminbackend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <h4 class="logo-text">Kids</h4>
+                    <h4 class="logo-text">Admin</h4>
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
                 </div>
@@ -12,10 +12,19 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
+
+                    <a href="{{ route('admin.dashboard') }}">
+                        <div class="parent-icon"><i class='bx bx-cookie'></i>
+                        </div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
+                </li>
+
+                <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-home-circle'></i>
                         </div>
-                        <div class="menu-title">Dashboard</div>
+                        <div class="menu-title">Brand</div>
                     </a>
                     <ul>
                         <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
@@ -55,14 +64,13 @@
                         </li>
                     </ul>
                 </li>
+
+
+
+
+
                 <li class="menu-label">UI Elements</li>
-                <li>
-                    <a href="widgets.html">
-                        <div class="parent-icon"><i class='bx bx-cookie'></i>
-                        </div>
-                        <div class="menu-title">Widgets</div>
-                    </a>
-                </li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -160,7 +168,11 @@
                         </li>
                     </ul>
                 </li>
-                <li class="menu-label">Forms & Tables</li>
+
+
+
+
+
                 <li>
                     <a class="has-arrow" href="javascript:;">
                         <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
@@ -203,36 +215,7 @@
                     </ul>
                 </li>
                 <li class="menu-label">Pages</li>
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="bx bx-lock"></i>
-                        </div>
-                        <div class="menu-title">Authentication</div>
-                    </a>
-                    <ul>
-                        <li> <a href="authentication-signin.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Sign In</a>
-                        </li>
-                        <li> <a href="authentication-signup.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Sign Up</a>
-                        </li>
-                        <li> <a href="authentication-signin-with-header-footer.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Sign In with Header & Footer</a>
-                        </li>
-                        <li> <a href="authentication-signup-with-header-footer.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Sign Up with Header & Footer</a>
-                        </li>
-                        <li> <a href="authentication-forgot-password.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Forgot Password</a>
-                        </li>
-                        <li> <a href="authentication-reset-password.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Reset Password</a>
-                        </li>
-                        <li> <a href="authentication-lock-screen.html" target="_blank"><i
-                                    class="bx bx-right-arrow-alt"></i>Lock Screen</a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li>
                     <a href="user-profile.html">
                         <div class="parent-icon"><i class="bx bx-user-circle"></i>
