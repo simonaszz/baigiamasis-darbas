@@ -29,7 +29,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-
         $url = '';
         if ($request->user()->role === '0') {
             $url = 'admin/dashboard';
