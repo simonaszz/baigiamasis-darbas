@@ -91,7 +91,7 @@ class VendorController extends Controller
         User::whereId(auth()->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
-        return back()->with("status", "Password Change Successfully");
+        return back()->with("status", "Password Changed Successfully");
     }
 
 }
