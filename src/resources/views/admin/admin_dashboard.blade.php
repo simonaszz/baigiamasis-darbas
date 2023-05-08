@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
-
+    <link rel="stylesheet"
+        href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <title>Admin Dashboard</title>
 </head>
@@ -33,15 +34,15 @@
     <!--wrapper-->
     <div class="wrapper">
         <!--sidebar wrapper -->
-        @include('admin.body.sidebar');
+        @include('admin.body.sidebar')
         <!--end sidebar wrapper -->
         <!--start header -->
-        @include('admin.body.header');
+        @include('admin.body.header')
         <!--end header -->
 
         <!--start page wrapper -->
         <div class="page-wrapper">
-            @yield('admin');
+            @yield('admin')
         </div>
         <!--end page wrapper -->
 
@@ -51,7 +52,7 @@
         <!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i
                 class='bx bxs-up-arrow-alt'></i></a>
         <!--End Back To Top Button-->
-        @include('admin.body.footer');
+        @include('admin.body.footer')
     </div>
     <!--end wrapper-->
 
@@ -181,6 +182,13 @@
     </script>
     <script src="{{ asset('adminbackend/assets/js/index.js') }}"></script>
     <!--app JS-->
+    <script src="{{ asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+
     <script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

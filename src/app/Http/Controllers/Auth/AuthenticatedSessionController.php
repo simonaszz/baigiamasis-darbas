@@ -29,6 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $notification = [
+            'message' => 'You have successfully logged in',
+            'alert-type' => 'success'
+        ];
+
         $url = '';
         if ($request->user()->role === '0') {
             $url = 'admin/dashboard';
@@ -38,10 +43,7 @@ class AuthenticatedSessionController extends Controller
             $url = '/dashboard';
         }
 
-
-
-
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);
     }
 
     /**
