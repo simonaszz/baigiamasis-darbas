@@ -15,9 +15,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Add Brand</button>
-
-
+                    <a class="btn btn-primary" href="{{ route('add.brand') }}">Add Brand</a>
                 </div>
             </div>
         </div>
@@ -41,11 +39,13 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->brand_name }}</td>
-                                    <td><img src="{{ asset($item->brand_image) }}" style="width: 70px; height:40px;"></td>
+                                    <td><img src="{{ asset($item->brand_image) }}" style="width: 70px; height:40px;">
+                                    </td>
 
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('edit.brand', $item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('delete.brand', $item->id) }}" class="btn btn-danger"
+                                            id="delete">Delete</a>
                                     </td>
 
                                 </tr>
