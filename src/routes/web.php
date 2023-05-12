@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 /*
@@ -31,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
+
 
 
 
@@ -78,6 +80,9 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
+
+Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
+
 
 //Brand all route
 Route::middleware(['auth', 'role:0'])->group(function () {

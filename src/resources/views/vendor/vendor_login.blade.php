@@ -40,19 +40,40 @@
                                         <h3 class="">Vendor Sign in</h3>
                                         <div class="form-body">
                                             <form class="row g-3" method="POST" action="{{ route('login') }}">@csrf
+
+                                                @if ($errors->any())
+                                                    {!! implode('', $errors->all('<div class="text-red">:message</div>')) !!}
+                                                @endif
+
+
+
                                                 <div class="col-12">
-                                                    <label for="inputEmailAddress" class="form-label">Email
+                                                    <label for="inputEmailAddress"class="form-label">Email
                                                         Address</label>
-                                                    <input type="email" name="email" class="form-control"
-                                                        id="email" placeholder="Email Address">
+                                                    <input class="form-control @error('email') is-invalid @enderror"
+                                                        name="email" id="email" placeholder="Email Address">
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
+
+
+
                                                 <div class="col-12">
                                                     <label for="inputChoosePassword" class="form-label">Enter
                                                         Password</label>
-                                                    <div class="input-group" id="show_hide_password">
+                                                    <div class="input-group " id="show_hide_password">
                                                         <input type="password" name="password"
-                                                            class="form-control border-end-0" id="password"
-                                                            placeholder="Enter Password"> <a href="javascript:;"
+                                                            class="form-control border-end-0 @error('password') is-invalid @enderror"
+                                                            id="password" placeholder="Enter Password">
+                                                        @error('password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <a href="javascript:;"
                                                             class="input-group-text bg-transparent"><i
                                                                 class='bx bx-hide'></i></a>
                                                     </div>
@@ -62,11 +83,13 @@
                                                         <input class="form-check-input" type="checkbox"
                                                             id="flexSwitchCheckChecked" checked>
                                                         <label class="form-check-label"
-                                                            for="flexSwitchCheckChecked">Remember Me</label>
+                                                            for="flexSwitchCheckChecked">Remember
+                                                            Me</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 text-end"> <a
-                                                        href="authentication-forgot-password.html">Forgot Password ?</a>
+                                                        href="authentication-forgot-password.html">Forgot
+                                                        Password ?</a>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-grid">

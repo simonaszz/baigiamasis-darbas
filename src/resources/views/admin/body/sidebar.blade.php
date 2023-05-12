@@ -66,9 +66,6 @@
                 </li>
 
 
-
-
-
                 <li class="menu-label">UI Elements</li>
 
                 <li>
@@ -135,7 +132,7 @@
                         <li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs &
                                 Chips</a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li>
                     <a class="has-arrow" href="javascript:;">
@@ -167,7 +164,7 @@
                         <li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}} }} --}}
 
                 <li class="menu-label">Charts & Maps</li>
                 <li>

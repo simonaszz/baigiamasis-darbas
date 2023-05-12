@@ -29,10 +29,10 @@
 
 
 
-                                <form id="myForm" method="POST" action="{{ route('store.subcategory') }}">
+                                <form id="myForm" method="POST" action="{{ route('update.subcategory') }}">
                                     @csrf
 
-
+                                    <input type="hidden" name="id" value="{{ $subcategory->id }}">
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
@@ -41,10 +41,12 @@
                                         <div class="form-group  col-sm-9 text-secondary">
                                             <select name="category_id" class="form-select mb-3"
                                                 aria-label="Default select exemple">
-                                                <option selected="Open this select menu"></option>
+                                                <option selected="">Open this select menu</option>
 
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->category_name }}
+                                                    <option value="{{ $category->id }}"
+                                                        {{ $category->id == $subcategory->category_id ? 'selected' : '' }}>
+                                                        {{ $category->category_name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -57,15 +59,9 @@
                                         </div>
                                         <div class="form-group  col-sm-9 text-secondary">
                                             <input type="text" name="subcategory_name" class="form-control"
-                                                value="{{}}" />
+                                                value="{{ $subcategory->subcategory_name }}" />
                                         </div>
                                     </div>
-
-
-
-
-
-
 
                                     <div class="row">
                                         <div class="col-sm-3"></div>

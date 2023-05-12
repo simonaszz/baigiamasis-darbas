@@ -88,9 +88,16 @@
                     brand_name: {
                         required: true,
                     },
+                    brand_image: {
+                        required: true,
+                    },
                 },
+
                 messages: {
                     brand_name: {
+                        required: 'Please Enter Brand Name',
+                    },
+                    brand_image: {
                         required: 'Please Enter Brand Name',
                     },
                 },
