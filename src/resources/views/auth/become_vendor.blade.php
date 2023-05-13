@@ -44,7 +44,7 @@
                                             <p class="mb-30">Already have an account? <a
                                                     href="{{ route('login') }}">Login</a></p>
                                         </div>
-                                        <form method="POST" action="{{ route('register') }}">
+                                        <form method="POST" action="{{ route('vendor.register') }}">
                                             @csrf
                                             <div class="form-group">
                                                 <input type="text" id="name" required="" name="name"
@@ -56,10 +56,16 @@
                                             <div class="form-group">
                                                 <input type="text" id="username" required="" name="username"
                                                     placeholder="User Name" />
+                                                @error('username')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <input type="number" id="phone" required="" name="phone"
                                                     placeholder="Phone Number" />
+                                                @error('phone')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
 
                                             <select name="vendor_join" id="" class="form-select"
@@ -78,14 +84,23 @@
                                             <div class="form-group">
                                                 <input type="email" id="email" required="" name="email"
                                                     placeholder="Email" />
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <input required="" id="password" type="password" name="password"
                                                     placeholder="Password" />
+                                                @error('password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <input required="" id="password_confirmation" type="password"
                                                     name="password_confirmation" placeholder="Confirm password" />
+                                                @error('password_confirmation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
 
                                             <div class="login_footer form-group mb-50">
@@ -93,7 +108,8 @@
                                                     <div class="custome-checkbox">
                                                         <input class="form-check-input" type="checkbox" name="checkbox"
                                                             id="exampleCheckbox12" value="" />
-                                                        <label class="form-check-label" for="exampleCheckbox12"><span>I
+                                                        <label class="form-check-label"
+                                                            for="exampleCheckbox12"><span>I
                                                                 agree to terms &amp;
                                                                 Policy.</span></label>
                                                     </div>

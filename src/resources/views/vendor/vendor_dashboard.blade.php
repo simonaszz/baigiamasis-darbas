@@ -27,22 +27,22 @@
     <link rel="stylesheet"
         href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <title>Admin Dashboard</title>
+    <title>Vendor Dashboard</title>
 </head>
 
 <body>
     <!--wrapper-->
     <div class="wrapper">
         <!--sidebar wrapper -->
-        @include('admin.body.sidebar')
+        @include('vendor.body.sidebar')
         <!--end sidebar wrapper -->
         <!--start header -->
-        @include('admin.body.header')
+        @include('vendor.body.header')
         <!--end header -->
 
         <!--start page wrapper -->
         <div class="page-wrapper">
-            @yield('admin')
+            @yield('vendor')
         </div>
         <!--end page wrapper -->
 
@@ -52,7 +52,7 @@
         <!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i
                 class='bx bxs-up-arrow-alt'></i></a>
         <!--End Back To Top Button-->
-        @include('admin.body.footer')
+        @include('vendor.body.footer')
     </div>
     <!--end wrapper-->
 
