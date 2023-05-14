@@ -107,7 +107,7 @@ class VendorController extends Controller
 
         $user = User::insert([
             'name' => $request->name,
-            'username' => $request->user_name,
+            'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
             'vendor_join' => $request->vendor_join,
