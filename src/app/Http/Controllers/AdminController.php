@@ -92,4 +92,21 @@ class AdminController extends Controller
         return back()->with("status", "Password Changed Successfully");
     }
 
+    public function InactiveVendor()
+    {
+        $inActiveVendor = User::where('status', 'inactive')->where('role', '1')->latest()->get();
+        return view('backend.vendor.inactive_vendor', compact('inActiveVendor'));
+    }
+    public function ActiveVendor()
+    {
+        $activeVendor = User::where('status', 'active')->where('role', '1')->latest()->get();
+        return view('backend.vendor.active_vendor', compact('activeVendor'));
+    }
+
+    public function InactiveVendorDetails($id)
+    {
+        $inactiveVendorDetails = User::findOrFail($id);
+        return view('backend.vendor.inactive_vendor_details', compact('inactiveVendorDetails'));
+    }
+
 }

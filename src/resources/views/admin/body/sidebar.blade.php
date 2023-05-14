@@ -72,19 +72,16 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-cart'></i>
                         </div>
-                        <div class="menu-title">eCommerce</div>
+                        <div class="menu-title">Vendor Manage</div>
                     </a>
                     <ul>
-                        <li> <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Products</a>
+                        <li> <a href="{{ route('inactive.vendor') }}"><i class="bx bx-right-arrow-alt"></i>Inactive
+                                Vendor</a>
                         </li>
-                        <li> <a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Product
-                                Details</a>
+                        <li> <a href="{{ route('active.vendor') }}"><i class="bx bx-right-arrow-alt"></i>Active
+                                Vendor</a>
                         </li>
-                        <li> <a href="ecommerce-add-new-products.html"><i class="bx bx-right-arrow-alt"></i>Add New
-                                Products</a>
-                        </li>
-                        <li> <a href="ecommerce-orders.html"><i class="bx bx-right-arrow-alt"></i>Orders</a>
-                        </li>
+
                     </ul>
                 </li>
                 <li>
@@ -132,7 +129,7 @@
                         <li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs &
                                 Chips</a>
                         </li>
-                    </ul> --}}
+                    </ul>
                 </li>
                 <li>
                     <a class="has-arrow" href="javascript:;">
@@ -164,7 +161,7 @@
                         <li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>
                         </li>
                     </ul>
-                </li> --}} }} --}}
+                </li>
 
                 <li class="menu-label">Charts & Maps</li>
                 <li>
