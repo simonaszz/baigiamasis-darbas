@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use Image;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\Product;
@@ -10,6 +9,8 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Image;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -49,12 +50,20 @@ class ProductController extends Controller
             'product_size' => $request->product_size,
             'product_color' => $request->product_code,
 
-            'brand_id' => $request->brand_id,
-            'brand_id' => $request->brand_id,
-            'brand_id' => $request->brand_id,
-            'brand_id' => $request->brand_id,
-            'brand_id' => $request->brand_id,
-            'brand_id' => $request->brand_id,
+            'selling_price' => $request->selling_price,
+            'discount_price' => $request->discount_price,
+            'short_descp' => $request->short_description,
+            'long_descp' => $request->long_description,
+
+            'hot_deals' => $request->brand_id,
+            'featured' => $request->brand_id,
+            'special_offer' => $request->brand_id,
+            'special_deals' => $request->brand_id,
+
+            'product_thumbnail' => $save_url,
+            'vendor_id' => $request->vendor_id,
+            'status' => 1,
+            'created_at' => Carbon::now(),
         ]);
 
 
