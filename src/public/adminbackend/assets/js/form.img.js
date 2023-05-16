@@ -23,7 +23,7 @@ $(document).ready(function () {
 
             $.each(data, function (index, file) {
                 //loop though each file
-                if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) {
+                if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)) {
                     //check supported file type
                     let fRead = new FileReader(); //new filereader
                     fRead.onload = (function (file) {
