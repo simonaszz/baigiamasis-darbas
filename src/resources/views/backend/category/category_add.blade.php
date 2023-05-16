@@ -89,6 +89,9 @@
                     category_name: {
                         required: true,
                     },
+                    category_name: {
+                        required: true,
+                    },
                 },
                 messages: {
                     category_name: {

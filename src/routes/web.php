@@ -114,8 +114,11 @@ Route::middleware(['auth', 'role:0'])->group(function () {
         Route::get('/add/subcategory', 'AddSubCategory')->name('add.subcategory');
         Route::get('/edit/subcategory/{id}', 'EditSubCategory')->name('edit.subcategory');
         Route::get('/delete/subcategory/{id}', 'DeleteSubCategory')->name('delete.subcategory');
+        Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory');
+
         Route::post('/store/subcategory', 'StoreSubCategory')->name('store.subcategory');
         Route::post('/update/subcategory', 'UpdateSubCategory')->name('update.subcategory');
+
     });
 
     //Vendor active and inactive all route
@@ -136,6 +139,7 @@ Route::middleware(['auth', 'role:0'])->group(function () {
     Route::controller(ProductController::class)->group(function () {
         Route::get('/all/product', 'AllProduct')->name('all.product');
         Route::get('/add/product', 'AddProduct')->name('add.product');
+        Route::post('/store/product', 'StoreProduct')->name('store.product');
 
     });
 
