@@ -1,4 +1,7 @@
-    <section class="product-tabs section-padding position-relative">
+@php
+    $products=App\Models\Product:
+@endphp
+<section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
                 <h3> New Products </h3>
@@ -56,13 +59,33 @@
                                                 alt="" />
                                         </a>
                                     </div>
+
+
+
+
+
+
                                     <div class="product-action-1">
-                                        <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
+                                        <a aria-label="Add To Wishlist" class="action-btn" i"><i
                                                 class="fi-rs-heart"></i></a>
                                         <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
                                                 class="fi-rs-shuffle"></i></a>
+
+
+
                                         <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                            data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                            data-bs-target="#quickViewModal">
+                                            <i class="fi-rs-eye"></i></a>
+
+                                        {{--
+
+
+                                            d="{{ $product->id }}"
+                                            onclick="addToWishList(this.id) --}}
+
+
+
+
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
                                         <span class="hot">Hot</span>
