@@ -795,19 +795,3 @@
 })(jQuery);
 
 // wishlist.js
-
-function addToWishList(product_id) {
-    $.ajax({
-        method: "POST",
-        dataType: "json",
-        url: "/add-to-wishlist/" + product_id,
-        success: function (data) {
-            // Handle success response
-            console.log(data);
-        },
-        error: function (xhr, status, error) {
-            // Handle error scenarios
-            console.log(xhr.responseText);
-        },
-    });
-}

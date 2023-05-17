@@ -163,6 +163,3 @@ Route::post('/product/details/{id}/{slug}', [IndexController::class, 'ProductDet
 Route::post('/product/product{id}', [IndexController::class, 'ProductId']);
 
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
-
-
-Route::post('/wishlist/add', 'WishListController@addToWishList')->name('wishlist.add');
