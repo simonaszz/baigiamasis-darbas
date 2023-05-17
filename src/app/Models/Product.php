@@ -10,9 +10,9 @@ class Product extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function wishlists()
+    public function vendor()
     {
-        return $this->belongsToMany(User::class, 'wishlists', 'product_id', 'user_id')->withTimestamps();
+        return $this->belongsTo(User::class, 'vendor_id', 'id');
     }
 
 }
