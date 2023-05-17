@@ -236,11 +236,91 @@
             </div>
 
             </form>
+        </div>
 
+    </div>
+
+    <div class="page-content">
+        <h6 class="mb-0 text-uppercase">Update Main Image Thumbnail</h6>
+        <hr>
+        <div class="card">
+
+            <form id="myForm" method="POST"
+                action="{{ route('update.product.thumbnail') }}"enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="id" value="{{ $products->id }}">
+                <input type="hidden" name="old_img" value="{{ $products->product_thumbnail }}">
+
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="forFile" class="form-label">Chose Thumbnail Image</label>
+                        <input name="product_thumbnail" type="file" id="formFile" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="forFile" class="form-label"></label>
+                        <img src="{{ asset($products->product_thumbnail) }}" style="width: 100px; height:100px;">
+                    </div>
+                    <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                </div>
+
+            </form>
 
         </div>
 
     </div>
+
+    <div class="page-content">
+        <h6 class="mb-0 text-uppercase">Update Multi Image</h6>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                @if (count($multiImgs) > 0)
+                    <table class="table mb-0 table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Serial Number</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Change Image</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form id="myForm" method="POST" action="{{ route('update.product.multiimage') }}"
+                                enctype="multipart/form-data">
+                                @csrf
+
+                                @foreach ($multiImgs as $key => $img)
+                                    <tr>
+                                        <th scope="row">{{ $key + 1 }}</th>
+                                        <td><img src="{{ asset($img->photo_name) }}" style="width: 70px; height:40px;"
+                                                alt=""></td>
+                                        <td><input type="file" class="form-group"
+                                                name="multi_img[{{ $img->id }}]"></td>
+                                        <td>
+                                            <input type="submit" class="btn btn-primary px-4" value="Update Image" />
+
+                                            <a href="{{ route('product.multiimg.delete', $img->id) }}"
+                                                class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </form>
+                        </tbody>
+                    </table>
+                @else
+                    <p>No images found.</p>
+                @endif
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
     <script type="text/javascript">
         const baseUrl = "{{ url('/subcategory/ajax') }}";
         $(document).ready(function() {

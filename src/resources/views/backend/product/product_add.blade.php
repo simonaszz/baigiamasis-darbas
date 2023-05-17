@@ -219,8 +219,7 @@
                                         <hr>
                                         <div class="col-12">
                                             <div class="d-grid">
-                                                <input type="submit" class="btn btn-primary px-4"
-                                                    value="Save Product"></input>
+                                                <input type="submit" class="btn btn-primary px-4" value="Save Product">
                                             </div>
                                         </div>
                                     </div>
