@@ -5,12 +5,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Backend\SubCategoryController;
-use App\Http\Middleware\RedirectIfAuthenticated;
 
 
 /*
@@ -80,7 +81,7 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 
 });
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);.
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 
 Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login')->middleware(RedirectIfAuthenticated::class);
 
@@ -156,3 +157,12 @@ Route::middleware(['auth', 'role:0'])->group(function () {
 
 
 });
+
+//add wishlist
+Route::post('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::post('/product/product{id}', [IndexController::class, 'ProductId']);
+
+Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
+
+
+Route::post('/wishlist/add', 'WishListController@addToWishList')->name('wishlist.add');

@@ -30,11 +30,21 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255', 'min:5'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required',
+            'terms' => 'required|accepted',
+        ];
+
+        $messages = [
+            'password.confirmed' => 'The password confirmation does not match.',
+            'terms.required' => 'You must agree to the Terms & Policy.',
+            'terms.accepted' => 'You must agree to the Terms & Policy.',
+        ];
+
+        $request->validate($rules, $messages);
 
         $user = User::create([
             'name' => $request->name,
@@ -48,4 +58,5 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
 }

@@ -103,6 +103,14 @@
                                                 alt="" />
                                         </a>
                                     </div>
+
+                                    {{-- <div class="product">
+                                        <h2>Product Title</h2>
+                                        <p>Product Description</p>
+                                        <button class="add-to-wishlist" onclick="addToWishList({{ $product->id }})">Add to Wishlist</button>
+                                    </div> --}}
+
+
                                     <div class="product-action-1">
                                         <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
                                                 class="fi-rs-heart"></i></a>

@@ -48,18 +48,40 @@
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
                                             <h1 class="mb-5">Login</h1>
-                                            <p class="mb-30">Don't have an account? <a href="page-register.html">Create
+                                            <p class="mb-30">Don't have an account? <a
+                                                    href="{{ route('register') }}">Create
                                                     here</a></p>
                                         </div>
+
+
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
+
+
+
                                             <div class="form-group">
-                                                <input type="email" id="email" required="" name="email"
-                                                    placeholder="Email *" />
+
+                                                <input class="form-control @error('email') is-invalid @enderror"
+                                                    name="email" id="email" placeholder="Email Address">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                             <div class="form-group">
-                                                <input required="" id="password" type="password" name="password"
+
+                                                <input class="form-control @error('password') is-invalid @enderror"
+                                                    id="password" type="password" name="password"
                                                     placeholder="Your password *" />
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+
                                             </div>
 
 

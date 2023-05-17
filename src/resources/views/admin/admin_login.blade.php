@@ -39,7 +39,8 @@
                                     <div class="text-center">
                                         <h3 class="">Admin Sign in</h3>
                                         <div class="form-body">
-                                            <form class="row g-3" method="POST" action="{{ route('login') }}">@csrf
+                                            <form class="row g-3" method="POST" action="{{ route('login') }}">
+                                                @csrf
                                                 <div class="col-12">
                                                     <label for="inputEmailAddress" class="form-label">Email
                                                         Address</label>

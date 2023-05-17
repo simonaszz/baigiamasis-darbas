@@ -44,71 +44,118 @@
                                             <p class="mb-30">Already have an account? <a
                                                     href="{{ route('login') }}">Login</a></p>
                                         </div>
+
+
+
+
                                         <form method="POST" action="{{ route('register') }}">
                                             @csrf
+
+
+
                                             <div class="form-group">
-                                                <input type="text" id="name" required="" name="name"
+                                                <input class="form-control @error('name') is-invalid @enderror"
+                                                    type="text" id="name" name="name"
                                                     placeholder="Username" />
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" id="email" required="" name="email"
-                                                    placeholder="Email" />
-                                            </div>
-                                            <div class="form-group">
-                                                <input required="" id="password" type="password" name="password"
-                                                    placeholder="Password" />
-                                            </div>
-                                            <div class="form-group">
-                                                <input required="" id="password_confirmation" type="password"
-                                                    name="password_confirmation" placeholder="Confirm password" />
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
 
-                                            <div class="login_footer form-group mb-50">
-                                                <div class="chek-form">
-                                                    <div class="custome-checkbox">
-                                                        <input class="form-check-input" type="checkbox" name="checkbox"
-                                                            id="exampleCheckbox12" value="" />
-                                                        <label class="form-check-label" for="exampleCheckbox12"><span>I
-                                                                agree to terms &amp;
-                                                                Policy.</span></label>
-                                                    </div>
-                                                </div>
-                                                <a href="page-privacy-policy.html"><i
-                                                        class="fi-rs-book-alt mr-5 text-muted"></i>Lean more</a>
+
+
+
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control @error('name') is-invalid @enderror"type="email"
+                                                    id="email" name="email" placeholder="Email" />
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
-                                            <div class="form-group mb-30">
-                                                <button type="submit"
-                                                    class="btn btn-fill-out btn-block hover-up font-weight-bold"
-                                                    name="login">Submit &amp; Register</button>
+
+
+
+
+                                            <div class="form-group">
+                                                <input class="form-control @error('password') is-invalid @enderror"
+                                                    id="password" type="password" name="password"
+                                                    placeholder="Password" />
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
-                                            <p class="font-xs text-muted"><strong>Note:</strong>Your personal data will
-                                                be used to support your experience throughout this website, to manage
-                                                access to your account, and for other purposes described in our privacy
-                                                policy</p>
-                                        </form>
+
+
+
+
+
+                                            <div class="form-group">
+                                                <input
+                                                    class="form-control @error('password_confirmation"') is-invalid @enderror"
+                                                    id="password_confirmation" type="password"
+                                                    name="password_confirmation"" placeholder="Confirm password" />
+                                                @error('password_confirmation"')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 pr-30 d-none d-lg-block">
-                                <div class="card-login mt-115">
-                                    <a href="#" class="social-login facebook-login">
-                                        <img src="assets/imgs/theme/icons/logo-facebook.svg" alt="" />
-                                        <span>Continue with Facebook</span>
-                                    </a>
-                                    <a href="#" class="social-login google-login">
-                                        <img src="assets/imgs/theme/icons/logo-google.svg" alt="" />
-                                        <span>Continue with Google</span>
-                                    </a>
-                                    <a href="#" class="social-login apple-login">
-                                        <img src="assets/imgs/theme/icons/logo-apple.svg" alt="" />
-                                        <span>Continue with Apple</span>
-                                    </a>
+
+
+
+
+
+                                    <div class="login_footer form-group mb-50">
+                                        <div class="chek-form">
+                                            <div class="custome-checkbox">
+
+                                                <input class="form-check-input @error('terms') is-invalid @enderror"
+                                                    type="checkbox" name="terms" id="exampleCheckbox12"
+                                                    value="1">
+
+                                                <label class="form-check-label" for="exampleCheckbox12">
+                                                    <span>I agree to
+                                                        terms &amp; Policy.</span></label>
+
+
+                                            </div>
+                                            @error('terms')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <a href="page-privacy-policy.html"><i
+                                                class="fi-rs-book-alt mr-5 text-muted"></i>Learn more</a>
+                                    </div>
+
+                                    <div class="form-group mb-30">
+                                        <button type="submit"
+                                            class="btn btn-fill-out btn-block hover-up font-weight-bold"
+                                            name="login">Submit &amp; Register</button>
+                                    </div>
+                                    <p class="font-xs text-muted"><strong>Note:</strong>Your personal data will
+                                        be used to support your experience throughout this website, to manage
+                                        access to your account, and for other purposes described in our privacy
+                                        policy</p>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 

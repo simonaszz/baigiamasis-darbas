@@ -82,6 +82,71 @@
     <!-- Template  JS -->
     <script src="{{ asset('frontend/assets/js/main.js?v=5.3') }}"></script>
     <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
+
+
+
+
+    <script type="text/javascript">
+        // function addToWishList(product_id) {
+        //     $.ajax({
+        //         method: 'POST',
+        //         dataType: 'json',
+        //         url: "/add-to-wishlist/" + product_id,
+
+        //         success: function(data) {
+        //             const Toast = Swal.mixin({
+        //                 toast: true,
+        //                 position: 'top-end',
+        //                 icon: 'success',
+        //                 showConfirmButton: false,
+        //                 timer: 3000
+        //             });
+        //             if ($.isEmptyObject(data.error)) {
+        //                 Toast.fire({
+        //                     icon: 'success',
+        //                     title: data.success,
+        //                 });
+        //             } else {
+        //                 Toast.fire({
+        //                     icon: 'error',
+        //                     title: data.error,
+        //                 });
+        //             }
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.log(xhr.responseText);
+        //         }
+        //     });
+        // }
+
+
+        $('.add-to-wishlist').on('click', function(e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+
+            $.ajax({
+                url: '/wishlist/add',
+                method: 'POST',
+                data: {
+                    product_id: productId
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    // Display success message or perform any additional actions
+                    alert(response.message);
+                },
+                error: function(xhr, status, error) {
+                    // Handle error scenarios
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    </script>
+
+
+
 </body>
 
 </html>

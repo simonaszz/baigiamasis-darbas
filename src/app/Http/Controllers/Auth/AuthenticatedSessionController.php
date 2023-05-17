@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,22 +30,46 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+
+        $credentials = $request->only('email', 'password');
+
+        $validationRules = [
+            'email' => 'required|email',
+            'password' => 'required|min:3',
+        ];
+
+        $validationMessages = [
+            'password.required' => 'The password field is required.',
+            'password.min' => 'The password must be at least :min characters.',
+        ];
+
+        $request->validate($validationRules, $validationMessages);
+
+        if (!Auth::attempt($credentials)) {
+            return back()->withErrors([
+                'email' => 'These credentials do not match our records.',
+            ])->withInput($request->except('password'));
+        }
+
         $notification = [
-            'message' => 'You have successfully logged in',
+            'message' => 'You have successfully logged in.',
             'alert-type' => 'success'
         ];
 
         $url = '';
-        if ($request->user()->role === '0') {
+        if (Auth::user()->role === '0') {
             $url = 'admin/dashboard';
-        } elseif ($request->user()->role === '1') {
+        } elseif (Auth::user()->role === '1') {
             $url = 'vendor/dashboard';
-        } elseif ($request->user()->role === '2') {
+        } elseif (Auth::user()->role === '2') {
             $url = '/dashboard';
         }
 
         return redirect()->intended($url)->with($notification);
     }
+
+
+
 
     /**
      * Destroy an authenticated session.
